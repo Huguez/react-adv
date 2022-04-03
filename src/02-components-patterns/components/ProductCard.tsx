@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 
 import { useProduct } from '../hooks/useProduct'
 
@@ -11,15 +11,16 @@ export const ProductContext = createContext( {  } as ProductContextProps )
 export const { Provider } = ProductContext
 
 
-export const ProductCard = ( { product, children }:Props ) => {
-   
+export const ProductCard = ( props:Props ) => {
+   const { product } = props
+
    const { count, handleButton } = useProduct( 0 )
 
    return (
       <Provider value={ { count, handleButton, product } } >
-         <div className={ style.productCard }>
+         <div  style={ props.style } className={ `${ props.className }  ${ style.productCard } `  }>
 
-            { children }
+            { props.children }
 
          </div>
       </Provider>

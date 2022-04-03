@@ -1,8 +1,28 @@
-import { ReactElement } from "react";
+
+export interface PropsTitle {
+   className?: string
+   title?: string; 
+   style?: React.CSSProperties;
+}
+
+export interface PropsImage {
+   img?:string;
+   className?: string;
+   style?: React.CSSProperties;
+}
+
+export interface PropsButtons{
+   handleButton?: (value:number) => void;
+   count?: number;
+   className?: string;
+   style?: React.CSSProperties;
+}
 
 export interface Props {
    product: Product;
-   children?: ReactElement[] | ReactElement;
+   children?: React.ReactElement[] | React.ReactElement;
+   className?: string; 
+   style?: React.CSSProperties;
 };
 
 export interface Product {
@@ -11,11 +31,6 @@ export interface Product {
    img?:  string;
 };
 
-export interface ProductButtons{
-   handleButton?: (value:number) => void;
-   count?: number;
-}
-
 export interface ProductContextProps {
    count: number;
    handleButton: (value:number) => void;
@@ -23,8 +38,8 @@ export interface ProductContextProps {
 }
 
 export interface ProductCardHOCProps {
-   ( { children, product }: Props ): JSX.Element;
-   Title:({ title }:{ title? : string | undefined }) => JSX.Element;
-   Image:({ img }:{ img? : string | undefined }) => JSX.Element;
-   Buttons: (value:ProductButtons) => JSX.Element;
+   ( value: Props ): JSX.Element;
+   Title:( value: PropsTitle ) => JSX.Element;
+   Image:( value: PropsImage ) => JSX.Element;
+   Buttons:( value: PropsButtons ) => JSX.Element;
 }
