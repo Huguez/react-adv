@@ -12,9 +12,9 @@ export const { Provider } = ProductContext
 
 
 export const ProductCard = ( props:Props ) => {
-   const { product } = props
+   const { product, onChange, value } = props
 
-   const { count, handleButton } = useProduct( 0 )
+   const { count, handleButton } = useProduct( { onChange, product, value } )
 
    return (
       <Provider value={ { count, handleButton, product } } >

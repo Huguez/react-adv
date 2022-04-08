@@ -18,11 +18,18 @@ export interface PropsButtons{
    style?: React.CSSProperties;
 }
 
+export interface ProductInCart extends Product {
+   count: number;
+}
+
 export interface Props {
    product: Product;
    children?: React.ReactElement[] | React.ReactElement;
    className?: string; 
    style?: React.CSSProperties;
+   onChange?: ( args: onChangeArgs ) => void;
+   value?:number;
+   
 };
 
 export interface Product {
@@ -30,6 +37,19 @@ export interface Product {
    title: string;
    img?:  string;
 };
+
+
+export interface useProductArgs {
+   product: Product;
+   onChange?: ( args: onChangeArgs ) => void;
+   value?: number
+}
+
+
+export interface onChangeArgs {
+   count: number;
+   product: Product;
+}
 
 export interface ProductContextProps {
    count: number;
