@@ -12,15 +12,22 @@ export const { Provider } = ProductContext
 
 
 export const ProductCard = ( props:Props ) => {
-   const { product, onChange, value } = props
+   const { product, onChange, value, initialValues } = props
 
-   const { count, handleButton } = useProduct( { onChange, product, value } )
-
+   const { count, handleButton, isMaxCountReached, reset } = useProduct( { onChange, product, value, initialValues } )
+   
    return (
-      <Provider value={ { count, handleButton, product } } >
+      <Provider value={ { count, handleButton, product, maxCount: initialValues?.maxCount } } >
          <div  style={ props.style } className={ `${ props.className }  ${ style.productCard } `  }>
 
-            { props.children }
+            { props.children && props.children( {
+               count,
+               isMaxCountReached, 
+               increaseBy: handleButton,
+               reset,
+               product,
+               maxCount: initialValues?.maxCount
+            } ) }
 
          </div>
       </Provider>

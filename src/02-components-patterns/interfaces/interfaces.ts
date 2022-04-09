@@ -22,14 +22,20 @@ export interface ProductInCart extends Product {
    count: number;
 }
 
+export interface InitialValues {
+   counter?:  number;
+   maxCount?: number;
+}
+
 export interface Props {
    product: Product;
-   children?: React.ReactElement[] | React.ReactElement;
+   // children?: React.ReactElement[] | React.ReactElement;
+   children?: ( args:ProductCardHandlers ) => React.ReactElement;
    className?: string; 
    style?: React.CSSProperties;
    onChange?: ( args: onChangeArgs ) => void;
    value?:number;
-   
+   initialValues?: InitialValues;
 };
 
 export interface Product {
@@ -42,7 +48,8 @@ export interface Product {
 export interface useProductArgs {
    product: Product;
    onChange?: ( args: onChangeArgs ) => void;
-   value?: number
+   value?: number,
+   initialValues?: InitialValues
 }
 
 
@@ -55,6 +62,7 @@ export interface ProductContextProps {
    count: number;
    handleButton: (value:number) => void;
    product: Product
+   maxCount?: number;
 }
 
 export interface ProductCardHOCProps {
@@ -62,4 +70,14 @@ export interface ProductCardHOCProps {
    Title:( value: PropsTitle ) => JSX.Element;
    Image:( value: PropsImage ) => JSX.Element;
    Buttons:( value: PropsButtons ) => JSX.Element;
+}
+
+
+export interface ProductCardHandlers {
+   count: number;
+   isMaxCountReached: boolean;
+   maxCount?: number;
+   product: Product;
+   increaseBy: ( value:number ) => void
+   reset: () => void;
 }
