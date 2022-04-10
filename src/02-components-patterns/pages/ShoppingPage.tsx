@@ -13,21 +13,22 @@ const ShoppingPage = () => {
          <div>ShoppingPage</div>
          <hr />
             
-         <ProductCard initialValues={{ counter:0, maxCount: 10 }}  product={ productos[0] }  className="bg-dark text-white" >
+         <ProductCard initialValues={{ counter:0, maxCount: 10 }}  product={ productos[0] }  className="" >
             {
                ( { isMaxCountReached, reset, increaseBy, maxCount, count }:ProductCardHandlers ) => (
                   <>
-                     <ProductImage className="custom-image" /> 
+                     <ProductImage /> 
 
-                     <ProductTitle className="font-bold" title={ productos[0].title } />
+                     <ProductTitle title={ productos[0].title } />
 
-                     <ProductButtons  className="custom-buttons" />
+                     <ProductButtons />
                      <br />
                      <button onClick={ reset } > reset </button>
                      
                      { isMaxCountReached && <button onClick={ () => increaseBy( -2 ) } > -2 </button> }                     
                      
                      <button onClick={ () => increaseBy( 2 ) } > +2 </button>
+                     <br />
                      <br />
                      <span>{ count } - { maxCount }</span>
 
