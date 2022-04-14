@@ -23,3 +23,24 @@ span, .error-message {
 .has-error {
    border: 1px solid red;
 }
+
+
+.num{
+	font-size: small;
+   font-weight: bold;
+}
+
+.globo {
+   background: red;
+   border-radius: 15px;
+   color: white;
+      
+   padding: 5px;
+   padding-top: 4px;
+   padding-bottom: 4px;
+   padding-left: 4px;
+      
+   margin: 0;
+   position: absolute;
+   text-align: center;
+}
