@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import { FormikAbsractPage, FormikComponentPage, FormikPage, FormikYupPage, RegisterPage } from '../forms/pages';
+import { DynamicFormPage, FormikAbsractPage, FormikComponentPage, FormikPage, FormikYupPage, RegisterPage, RegisterFormikPage } from '../forms/pages';
 
 import logo from '../logo.svg';
 
@@ -32,7 +32,12 @@ export const Navigation = () => {
                <li>
                   <NavLink to="/formikAbstract" activeClassName="nav-active" exact> Formik Abstract</NavLink>
                </li>
-
+               <li>
+                  <NavLink to="/registerFormik" activeClassName="nav-active" exact> Register Formik</NavLink>
+               </li>
+               <li>
+                  <NavLink to="/dynamicForm" activeClassName="nav-active" exact> Dynamic Form </NavLink>
+               </li>
             </ul>
          </nav>
 
@@ -42,10 +47,11 @@ export const Navigation = () => {
             <Route path="/formikYup" component={ FormikYupPage } />
             <Route path="/formikComponent" component={ FormikComponentPage } />
             <Route path="/formikAbstract" component={ FormikAbsractPage } />
-            
+            <Route path="/registerFormik" component={ RegisterFormikPage } />
+            <Route path="/dynamicForm" component={ DynamicFormPage } />
             <Redirect path='*'  to='lazy1' />
         </Switch>
       </div>
     </Router>
-  );
+   );
 }

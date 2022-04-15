@@ -1,0 +1,66 @@
+[
+   {
+      "type": "text",
+      "name": "name",
+      "placeholder": "Carlos",
+      "label": "Nombre",
+      "value": "",
+      "validation": [
+         {
+            "type": "required"
+         },{
+            "type": "minLength",
+            "value": 5
+         }
+      ]
+   },{
+      "type": "text",
+      "name": "lastname",
+      "placeholder": "Huguez",
+      "label": "Apellido",
+      "value": "",
+      "validation": [
+         {
+            "type": "required"
+         },{
+            "type": "minLength",
+            "value": 5
+         }
+      ]
+   },{
+      "type": "email",
+      "name": "email",
+      "placeholder": "Carlos@correo.com",
+      "label": "E-mail",
+      "value": "",
+      "validation": [
+         {
+            "type": "required"
+         },{
+            "type":"email"
+         }
+      ]
+   },{
+      "type": "password",
+      "name": "password",
+      "placeholder": "*********",
+      "label": "Password",
+      "value": "",
+      "validation": [
+         {
+            "type": "required"
+         }
+      ]
+   },{
+      "type": "select",
+      "name": "favoriteGame",
+      "label": "Juego favorito",
+      "value": "",
+      "option": [  { "id": 1, "juego": "Super smash" }, { "id": 2, "juego": "Metal gear" }, { "id": 3, "juego": "Resident Evil" } ],
+      "validation": [
+         {
+            "type": "required"
+         }
+      ]
+   }
+]
